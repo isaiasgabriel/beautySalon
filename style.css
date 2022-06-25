@@ -1,0 +1,722 @@
+/* ==============  RESET  ================= */
+* {
+  /* asterisco aplica pra toda a pagina  */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+  /*Vai resetar o estilo das listas do projeto*/
+  /*Os pontinhos padroes por exemplo sao eliminados*/
+}
+
+/* ==============  LINKS  ================= */
+a {
+  text-decoration: none; /* tira as decoracoes dos links */
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+/* ==============  VARIABLES  ================= */
+:root {
+  --header-height: 4.5rem;
+
+  /* colors */
+  --hue: 156;
+
+  /* HSL color mode */
+  --base-color: hsl(var(--hue) 36% 57%);
+  --base-color-second: hsl(var(--hue) 65% 88%);
+  --base-color-alt: hsl(var(--hue) 57% 53%);
+  --title-color: hsl(var(--hue) 41% 10%);
+  --text-color: hsl(0 0% 46%);
+  --text-color-light: hsl(0 0% 98%);
+  --body-color: hsl(0 0% 98%);
+
+  /*fonts*/
+  --title-font-size: 1.875rem;
+  --subtitle-font-size: 1rem;
+
+  --title-font: 'Poppins', sans-serif;
+  --blody-font: 'DM Sans',sans-serif;
+}
+
+/* ==============  BASE  ================= */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  /* fonte, cor do texto e background */
+  font: 400 1rem var(--blody-font);
+  /*400 e o tamanho padrao, 1 rem a escala na tela e o ultimo a fonte*/
+  color: var(--text-color);
+  background: var(--body-color);
+}
+
+.title {
+  font: 700 var(--title-font-size) var(--title-font); /*Caso ele nao encontre a fonte ele vai usar sans-serif*/
+  color: var(--title-color);
+}
+
+.button {
+  background-color: var(--base-color);
+  color: var(--text-color-light);
+  height: 3.5rem;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 2rem;
+  border-radius: 0.25rem;
+  font: 500 1 rem var(--body-font);
+  transition: background 0.3s;
+}
+
+.button:hover {
+  /*Muda o comportamendo quando voce passa o mouse*/
+  background: var(--base-color-alt);
+}
+
+.divider-1 {
+  height: 1px;
+  background: linear-gradient(
+    270deg,
+    hsla(var(--hue), 36%, 57%, 1),
+    hsla(var(--hue), 65%, 88%, 0.34)
+  );
+}
+
+/*Eu apenas inverti as cores do divider-1*/
+.divider-2 {
+  height: 1px;
+  background: linear-gradient(
+    270deg,
+    hsla(var(--hue), 65%, 88%, 0.34),
+    hsla(var(--hue), 36%, 57%, 1)
+  );
+}
+
+/* ==============  LAYOUT  ================= */
+.container {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
+
+.grid {
+  display: grid;
+  gap: 2rem; /*Esse gap vai dar o espaco entre os elementos do grid*/
+}
+
+.section {
+  padding: calc(5rem + var(--header-height)) 0;
+}
+
+.section .title {
+  margin-bottom: 1rem;
+}
+
+.section .subtitle {
+  font-size: var(--subtitle-font-size);
+}
+
+.section header {
+  margin-bottom: 4rem;
+}
+
+.section header strong {
+  color: var(--base-color);
+}
+
+#header {
+  /* Usando o # pra se referir ao header cm esse id */
+  border-bottom: 1px solid #e4e4e4;
+  margin-bottom: 2rem;
+  display: flex;
+
+  width: 100%; /* 100% da largura da tela */
+  position: fixed; /*Deixa o header fixo conforme faz o scroll*/
+
+  top: 0;
+  left: 0;
+
+  z-index: 100;
+  background-color: var(--body-color);
+}
+
+#header.scroll {
+  box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* ==============  LOGO  ================= */
+.logo {
+  font: 700 1.3125rem var(--title-font);
+  color: var(--title-color);
+}
+
+.logo span {
+  color: var(--base-color);
+}
+
+.logo-alt span {
+  color: var(--body-color);
+}
+
+/* ==============  NAVIGATION  ================= */
+nav {
+  height: var(--header-height); /*rem = root element; 72/16 = 4.5*/
+  display: flex;
+  justify-content: space-between; /* Essa config vai fazer com que os elementos fiquem de cada lado do container  */
+  align-items: center;
+  width: 100%;
+}
+
+nav ul li {
+  text-align: center;
+}
+
+nav ul li a {
+  /*Note que eu especifico qual o tipo de transicao pois ha varias*/
+  transition: color 0.2s;
+  position: relative;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+  color: var(--base-color);
+}
+
+nav ul li a::after {
+  content: '';
+  width: 0%;
+  height: 2px;
+  background: var(--base-color);
+
+  position: absolute;
+  left: 0;
+  bottom: -1.5rem;
+
+  transition: width 0.2s;
+}
+
+nav ul li a:hover::after,
+nav ul li a.active::after {
+  width: 100%;
+}
+
+
+nav .menu {
+  opacity: 0;
+  visibility: hidden;
+  top: -20rem;
+  transition: 0.2s;
+}
+
+nav .menu ul {
+  display: none;
+}
+
+/* ==============  MOSTRAR MENU  ================= */
+
+/*Note que essas configuracoes sao somente para o mobile*/
+/*Afinal esse e um projeto mobile fisrt design*/
+
+/*Note que o nav.show nao possui nenhum espacamento*/
+/*Isso significa que quando o nav estiver com a classe show ele procura omenu*/
+nav.show .menu {
+  opacity: 1;
+  visibility: visible;
+
+  background: var(--body-color);
+
+  /*vh -> view height -> toda a altura que podemos ver no dispositivo*/
+  height: 100vh;
+  width: 100vw;
+  /*Fixed para que quando rolar o menu nao suma*/
+  position: fixed;
+  /*top 0 e left 0 serve pra deslocar o menu para o canto superior esquerdo*/
+  top: 0;
+  left: 0;
+
+  /*Configuracao responsavel por centralizar o menu*/
+  display: grid;
+  place-content: center;
+}
+
+nav.show .menu ul {
+  display: grid;
+}
+
+/*Eu pego o grid ja aplicado ao UL no HTML e configuro pra 4rem*/
+/*Tenho que fazer dessa forma pois a especificadade do .grid e 10*/
+/*portanto ao escrever assim a especificidade fica 12 e ganha*/
+nav.show ul.grid {
+  gap: 4rem;
+}
+
+/* ==============  TOGGLE MENU  ================= */
+/*Os dois icones do menu nao podem aparecer ao mesmo tempo*/
+
+.toggle {
+  color: var(--base-color);
+  font-size: 1.5rem;
+  cursor: pointer; /*Maozinha do mickey quando passa em cima*/
+}
+
+nav .icon-close {
+  visibility: hidden;
+  opacity: 0;
+  top: -1.5em;
+
+  position: absolute;
+  right: 1.5rem;
+  /*TRANSITION*/
+  transition: 0.2s;
+}
+
+nav.show div.icon-close {
+  visibility: visible;
+  opacity: 1;
+  transition: 0.2s;
+  top: 1.5rem;
+}
+
+/* ==============  HOME  ================= */
+
+#home {
+  overflow: hidden;
+}
+
+#home .container {
+  /*zerei o container por causa da imagem que fica colada na borda*/
+  margin: 0;
+}
+
+#home .image {
+  position: relative;
+}
+
+#home .image::before {
+  content: '';
+  height: 100%;
+  width: 100%;
+  background: var(--base-color-second);
+  position: absolute;
+  top: -16.8%;
+  left: 16.7%;
+  z-index: 0;
+}
+
+#home .image img {
+  position: relative; /*Vai habilitar funcoes de posicionamento*/
+  right: 2.93rem;
+}
+
+#home .image img,
+#home .image::before {
+  border-radius: 0.25rem;
+}
+
+#home .text {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+  text-align: center;
+}
+
+#home .text h1 {
+  margin-bottom: 1rem;
+}
+
+#home .text p {
+  margin-bottom: 2rem;
+}
+
+/* ==============  ABOUT  ================= */
+
+#about {
+  background: white;
+}
+
+#about .container {
+  /*zerei o container por causa da imagem que fica colada na borda*/
+  margin: 0;
+}
+
+#about .image {
+  position: relative;
+}
+
+#about .image::before {
+  content: '';
+  height: 100%;
+  width: 100%;
+  background: var(--base-color-second);
+  position: absolute;
+  top: -8.3%;
+  left: -33%;
+  z-index: 0;
+}
+
+#about .image img {
+  position: relative; /*Vai habilitar funcoes de posicionamento*/
+}
+
+#about .image img,
+#about .image::before {
+  border-radius: 0.25rem;
+}
+
+#about .text {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
+
+#about .text h2 {
+  margin-bottom: 1rem;
+}
+
+#about .text p {
+  margin-bottom: 2rem;
+}
+
+/* ==============  SERVICES  ================= */
+
+.cards.grid {
+  gap: 1.5rem;
+}
+
+.card {
+  /*Configuracao de alinhamento dos cards*/
+  padding: 3.625rem 2rem;
+  box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.08);
+  border-bottom: 0.25rem solid var(--base-color);
+  border-radius: 0.25rem 0.25rem 0 0; /*Cada tamanho representa um lado do quadrado*/
+  text-align: center;
+}
+
+.cards i {
+  display: block;
+  margin-bottom: 1.5rem;
+  font-size: 5rem;
+  color: var(--base-color);
+}
+
+.card .title {
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+/* ==============  TESTIMONIALS  ================= */
+
+#testimonials {
+  background: white;
+}
+
+#testimonials .container {
+  margin-left: 0rem;
+  margin-right: 0rem;
+}
+
+#testimonials header {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+  margin-bottom: 0;
+}
+
+#testimonials blockquote {
+  padding: 2rem;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.08);
+  border-radius: 0.25rem;
+}
+
+#testimonials blockquote p {
+  position: relative;
+  text-indent: 1.875rem;
+
+  margin-bottom: 1.5rem;
+
+  color: var(--title-color);
+}
+
+#testimonials blockquote p span {
+  font: 700 2.5rem serif;
+  position: absolute;
+
+  top: -0.375rem;
+  left: -1.875rem;
+
+  color: var(--base-color);
+}
+
+#testimonials cite {
+  display: flex;
+  align-items: center;
+  font-style: normal;
+}
+
+#testimonials cite img {
+  width: 2rem;
+  height: 2rem;
+  object-fit: cover; /*Opcao pra encaixar se a imagem nao for ideal*/
+  clip-path: circle();
+  margin-right: 0.5rem;
+}
+
+/* ==============  SWIPER  ================= */
+
+.swiper-slide {
+  height: auto;
+  padding: 4rem 1rem;
+}
+
+.swiper-pagination-bullet-active {
+  background: var(--base-color);
+}
+
+/* ==============  CONTACT  ================= */
+#contact .grid {
+  gap: 4rem;
+}
+
+#contact .text p {
+  margin-bottom: 2rem;
+}
+
+#contact .button i,
+#contact ul li i {
+  font-size: 1.5rem;
+  margin-right: 0.625rem;
+}
+
+#contact ul.grid {
+  gap: 2rem;
+}
+
+#contact ul li {
+  display: flex;
+  align-items: center;
+}
+
+#contact ul li i {
+  color: var(--base-color);
+}
+
+/* ==============  CONTACT  ================= */
+
+footer {
+  background: var(--base-color);
+}
+
+footer.section{
+  padding: 4rem 0;
+
+}
+
+footer .logo {
+  display: inline-block;
+  /*esse inline-block e necessario pq a logo e um 'a' e isso siginifica que o display padrao e inline, oq impossibilita adicionar margin-bottom*/
+  margin-bottom: 1.5rem;
+}
+
+footer .brand p {
+  color: var(--text-color-light);
+  margin-bottom: 0.75rem;
+}
+
+footer i {
+  font-size: 1.5rem;
+  color: var(--text-color-light);
+}
+
+footer .social {
+  grid-auto-flow: column;
+  width: fit-content;
+}
+
+footer .social a {
+  display: inline-block; /*um ao lado do outro*/
+  transition: 0.3s;
+}
+
+footer .social a:hover {
+  transform: translateY(-8px);
+}
+
+/*back-to-top*/
+.back-to-top {
+  background: var(--base-color);
+  color: var(--text-color-light);
+
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+
+  padding: 0.5rem;
+  clip-path: circle();
+
+  font-size: 1.5rem;
+  line-height: 0;
+
+  visibility: hidden;
+  opacity: 0;
+
+  transition: 0.3s;
+  transform: translateY(100%);
+}
+
+.back-to-top.show {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ==============  MEDIA QUERIES  ================= */
+/* extra large devices : 1200 > */
+@media (min-width: 1200px) {
+
+  .container{
+    max-width: 1120px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .section{
+    padding: 10rem 0;
+  }
+
+  .section header ,
+  #testimonials header{
+    max-width: 32rem;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    /*Fazemos as margem separadas pra nao afetar o top*/
+  }
+
+  .button {
+    height: 3.125rem;
+  }
+
+  nav .menu {
+    opacity: 1;
+    visibility: visible;
+    top: 0;
+  }
+
+  nav .menu ul li a.title{
+    font: 400 1rem var(--body-font);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  nav ul li a.title.active{
+      font-weight:bold;
+      -webkit-font-smoothing: auto;
+    }
+
+  nav .icon-menu{
+    display: none;
+  }
+
+  nav .menu ul{
+    display: flex;
+    gap: 2rem;
+  }
+
+  main {
+    margin-top: var(--header-height);
+  }
+
+  /*HOME*/
+
+  #home .container{
+    grid-auto-flow: column;
+    justify-content: space-between;
+    margin: 0 auto;/*0 em cima e embaixo e auto nas laterais*/
+  }
+
+  #home .image{
+    order: 1;/*order precisa estar em uma caixa grid pra funcionar*/
+  }
+
+  #home .text{
+    order:0;
+    max-width: 24rem;
+    text-align: left;
+  }
+
+  /*ABOUT*/
+
+  #about .container{
+    grid-auto-flow: column;
+    margin: 0 auto;
+  }
+
+  /*SERVICES*/
+
+  .cards{
+    grid-template-columns: 1fr 1fr 1fr;
+    /*pega as colunas e divide em fracos iguais*/
+    /*voce pode aumentar o tamanho de uma fracao aumentando o numero dela*/
+  }
+
+  .card{
+    padding-right: 3rem;
+    padding-left: 3rem;
+  }
+
+  /*TESTIMONIALS*/
+#testimonials .container{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+  /*CONTACT*/
+
+  #contact .container{
+    grid-auto-flow: column;
+    align-items: center;
+  }
+
+  #contact .text{
+    max-width: 25rem;
+    text-align: left;
+  }
+  
+  /*CONTACT*/
+
+  footer.section {
+    padding: 3.75rem 0;
+  }
+
+  footer .container{
+    grid-auto-flow: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  footer .logo{
+    font-size: 2.25rem;
+  }
+
+  
+}
+
+/* large devices : 1023 > */
+@media (min-width: 1023px) {
+}
+
+/* large devices : 992 > */
+@media (min-width: 992px) {
+  :root {
+    --title-font-size: 2.25rem;
+    --subtitle-font-size: 1.125rem;
+  }
+}
+
+/* medium devices :  767 > */
+@media (min-width: 767px) {
+}

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="pt_BR ">
+  <head>
+    <!--Page Info-->
+    <meta charset="UTF-8" />
+    <!--Character set-->
+    <title>beautySalon</title>
+
+    <!--==== ICONS ======-->
+    <link rel="stylesheet" href="assets/fonts/style.css">
+
+    <!--==== SWIPER =======-->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper@8/swiper-bundle.min.css"
+    />
+
+    <!--==== STYLES ======-->
+    <link rel="stylesheet" href="style.css" />
+    <!--rel = relation with the href   -->
+
+    <!--==== FONTS =======-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Poppins:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    
+  </head>
+
+  <body>
+    <header id="header" >
+      <!--HEADER VAI TER LOGO COMO LINK E OS TRES PONTOS DE NAVEGACAO-->
+
+      <!--container show = mostra a tela do menu_-->
+      <nav class="container ">
+        <!--Navigation-->
+        <a class="logo" href="#">beauty<span>Salon</span>.</a>
+        <div class="menu">
+          <!--Tres barrinhas de navegacao-->
+          <ul class="grid">
+            <!--UL e uma lista e li sao os elementos dessa lista-->
+            <!--Tem um <a> de link dentro pois vamos clicar-->
+            <!--class .title incluida pra formatar o texto-->
+            <li><a class="title" href="#home">Início</a></li>
+            <li><a class="title" href="#about">Sobre</a></li>
+            <li><a class="title" href="#services">Serviços</a></li>
+            <li><a class="title" href="#testimonials">Depoimentos</a></li>
+            <li><a class="title" href="#contact">Contato</a></li>
+          </ul>
+        </div>
+        <!--Futura aba de menus-->
+        <div class="toggle icon-menu"></div>
+        <div class="toggle icon-close"></div>
+      </nav>
+    </header>
+
+    <main>
+      <!--HOME-->
+      <section class="section" id="home">
+        <!--Home section-->
+        <div class="container grid">
+          <div class="image">
+            <img
+              src="https://media.istockphoto.com/photos/close-up-of-unrecognizable-hairdresser-cutting-a-female-customers-picture-id1349298950?b=1&k=20&m=1349298950&s=170667a&w=0&h=e3QqJeNf45Soo04QbHD6njzJH42_Wn8lfTEAe7gCqiM="
+              alt="Imagem 1"
+            />
+          </div>
+          <div class="text">
+            <h2 class="title">Saúde natural para os seus cabelos</h2>
+            <!--H1 normalmente e reservado para o titulo principal-->
+            <p>
+              Um salão exclusivo em São Paulo, especializado em tratamentos
+              naturais.
+            </p>
+            <a class="button" href="#">Agendar um horario</a>
+          </div>
+        </div>
+      </section>
+
+      <div class="divider-1"></div>
+
+      <!--SOBRE-->
+      <!--      section.section#about>.container.grid = comando pra criar essa section automaticamente-->
+      <section class="section" id="about">
+        <div class="container grid">
+          <div class="image">
+            <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8aGFpcmRyZXNzZXJ8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60" alt="cabelereira">
+          </div>
+          <div class="text">
+            <h2 class="title">Sobre nós</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero beatae sit ullam animi nam accusamus nesciunt aliquid rerum quidem, odio vero vel saepe similique, optio cumque eveniet laboriosam quis nulla!</p>
+            <br><!--BREAK-->
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, culpa eius. Hic quod dolorem delectus, ipsum quo distinctio reiciendis voluptate sint praesentium quasi in iste voluptatum totam doloremque esse eveniet?</p>
+            <br><!--BREAK -->
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur velit ex at, sequi maiores placeat numquam ipsam accusamus obcaecati reprehenderit in hic similique unde sed assumenda non sint provident nisi.</p>
+          </div>
+        </div>
+      </section>
+
+      <!--Divider 2 tem o gradiente invertido-->
+      <div class="divider-2"></div>
+
+      <!--SERVICES -->
+      <section class="section" id="services">
+        <div class="container grid">
+          <header>
+            <h2 class="title">Serviços</h2>
+            <p class="subtitle">Com mais de 10 ano no mercado o <strong>beautySalon</strong> já conquistou clientes em inúmeros países com seus tratamentos exclusivos e totalmente naturais.</p>
+          </header>
+          <div class="cards grid">
+            <div class="card">
+              <i class="icon-woman-hair"></i>
+              <h3 class="title">Terapia Capilar</h3>
+              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maiores, amet est officia aut mollitia alias consequuntur. Modi consectetur, magni nisi similique earum reiciendis rem odit ipsum eius omnis praesentium exercitationem
+              </p>
+            </div>
+            <div class="card">
+              <i class="icon-trim"></i>
+              <h3 class="title">Cortes</h3>
+              <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolor quis nisi, error amet earum soluta officiis veniam at consequuntur voluptates quos neque deserunt in, quaerat est veritatis. Cum, debitis nobis.</p>
+            </div>
+            <div class="card">
+              <i class="icon-cosmetic"></i>
+              <h3 class="title">Tratamentos</h3>
+              <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni quisquam sit nostrum explicabo ipsum corporis nulla delectus itaque. Placeat ab praesentium, ex provident distinctio quia exercitationem adipisci odio nostrum aliquid.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="divider-1"></div>
+
+      <!--TESTIMONIALS -->
+      <section class="section" id="testimonials">
+        <div class="container">
+          <header>
+            <h2 class="title">Depoimentos de quem já passou por aqui</h2>
+          </header>
+          <div class="testimonials swiper">
+            <div class="swiper-wrapper">
+
+              <div class="testimonial swiper-slide">
+                <blockquote>
+                  <p>
+                    <span>&ldquo;</span>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe, ut. Voluptatem harum voluptate alias laboriosam facere laborum voluptates assumenda fugit repudiandae consectetur, illum, facilis possimus est placeat rerum totam porro.
+                  </p>
+                  <cite>
+                    <img src="assets/fotos/1.jpg" alt="">
+                    Wanessa Souza
+                  </cite>
+                </blockquote>
+              </div>
+
+              <div class="testimonial swiper-slide">
+                <blockquote>
+                  <p>
+                    <span>&ldquo;</span>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe, ut. Voluptatem harum voluptate alias laboriosam facere laborum voluptates assumenda fugit repudiandae consectetur, illum, facilis possimus est placeat rerum totam porro.
+                  </p>
+                  <cite>
+                    <img src="assets/fotos/2.jpg" alt="">
+                    Frank Sinatra
+                  </cite>
+                </blockquote>
+              </div>
+
+              <div class="testimonial swiper-slide">
+                <blockquote>
+                  <p>
+                    <span>&ldquo;</span>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe, ut. Voluptatem harum voluptate alias laboriosam facere laborum voluptates assumenda fugit repudiandae consectetur, illum, facilis possimus est placeat rerum totam porro.
+                  </p>
+                  <cite>
+                    <img src="assets/fotos/3.jpg" alt="">
+                    Daniel Fraga
+                  </cite>
+                </blockquote>
+              </div>
+
+            </div>
+
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+      </section>
+
+      <div class="divider-2"></div>
+
+      <!--CONTACT-->
+    <section class="section" id="contact">
+      <div class="container grid">
+
+
+        <div class="text">
+          <h2 class="title">Entre em contato com a gente!</h2>
+          <p>Entre em contato com a Beautysalon, queremos tirar suas duvidas, ouvir suas criticas e sugestoes.</p>
+          <a href="https://api.whatsapp.com/send?phone=&text=Atumalaca" class="button" target="_blank"><i class="icon-whatsapp"></i>Entre em contato</a>
+        </div>
+
+        <div class="links">
+          <ul class="grid">
+            <li><i class="icon-phone"></i> 12 489347</li>
+            <li><i class="icon-map-pin"></i> Rua do Lugar</li>
+            <li><i class="icon-mail"></i> email@email.com</li>
+          </ul>
+        </div>
+
+
+      </div>
+    </section>
+
+    <div class="divider-1"></div>
+      </div>
+    </main>
+
+    <!--FOOTER-->
+    <footer class="section">
+      <div class="container grid">
+        <div class="brand">
+          <a class="logo logo-alt" href="#home">beauty<span>Salon</span>.</a>
+          <p>©2021 Beautysalon.</p>
+          <p>Todos os direitos reservados.</p>
+        </div>
+        <div class="social grid">
+          <a href="https://instagram.com/" target="_blank"><i class="icon-instagram"></i></a>
+          <a href="https://facebook.com/" target="_blank"><i class="icon-facebook"></i></a>
+          <a href="https://youtube.com" target="_blank"><i class="icon-youtube"></i></a>
+        </div>
+      </div>
+    </footer>
+
+    <a class="back-to-top" href="#home"><i class="icon-arrow-up"></i></a>
+
+    <!--SWIPER-->
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <!--Swiper antes do main pq o main vai precisar dos arquivos do swiper-->
+
+    <!--Scroll Reveal-->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!--main.js-->
+    <script src="main.js">
+
+    </script>
+  </body>
+</html>
